@@ -1,0 +1,39 @@
+ # Read the Excel file
+> data <- read_excel("C:\\Users\\janna\\OneDrive - Baylor University\\Documents\\ROI-89-A1.xlsx")
+Error in utils::unzip(zip_path, list = TRUE) : 
+  zip file 'C:\Users\janna\OneDrive - Baylor University\Documents\ROI-89-A1.xlsx' cannot be opened
+> 
+ChatGPT
+It seems like you're trying to read an Excel file as if it were a zip file. This error occurs because the read_excel() function from the readxl package expects the path to an Excel file directly, not a zip file.
+
+Try using the correct function to read Excel files:
+
+R
+Copy code
+library(readxl)
+
+# Read the Excel file
+data <- read_excel("C:\\Users\\janna\\OneDrive - Baylor University\\Documents\\ROI-89-A1.xlsx")
+This should properly read the Excel file into your R environment.
+
+User
+ Read the Excel file
+> data <- read_excel("C:\\Users\\janna\\OneDrive - Baylor University\\Documents\\ROI-89-A1.xlsx")
+Error in utils::unzip(zip_path, list = TRUE) : 
+  zip file 'C:\Users\janna\OneDrive - Baylor University\Documents\ROI-89-A1.xlsx' cannot be opened
+> 
+ChatGPT
+It seems like there's still an issue with the file path. The error message indicates that R is trying to treat the Excel file as a zip file and unzip it, which is incorrect.
+
+Please make sure that the file path is correct and that you are providing the path to the Excel file itself, not a zip file. Here's the correct way to read the Excel file:
+
+r
+Copy code
+library(readxl)
+
+# Read the Excel file
+data <- read_excel("C:/Users/janna/OneDrive - Baylor University/Documents/ROI-89-A1.xlsx")
+Ensure that the file path is accurate and that the file exists in the specified location. If the issue persists, there may be other factors affecting the file reading process.
+
+
+

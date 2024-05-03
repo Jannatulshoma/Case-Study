@@ -1,0 +1,36 @@
+C:/Users/janna/Documents/ROI-89-A1.xlsx  make spearman correlation graph with this data and provide me the code
+ChatGPT
+To create a Spearman correlation graph in R using the data from the provided Excel file, you can follow these steps:
+
+r
+Copy code
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+# Read the Excel file
+data <- read_excel("C:/Users/janna/Documents/ROI-89-A1.xlsx")
+
+# Rename columns
+data <- data %>%
+  rename(ITGA1 = `Mean_2[Deconvolved[Tsf[SHOMA ROI Imaging:GFP 469,525]]]`,
+         PLK1 = `Mean_2[Deconvolved[Tsf[SHOMA ROI Imaging:RFP 531,593]]]`)
+
+# Filter data for areas above 100
+data_above_100 <- data %>%
+  filter(area > 100)
+
+# Calculate Spearman correlation
+correlation <- cor.test(data_above_100$ITGA1, data_above_100$PLK1, method = "spearman")
+
+# Create scatterplot with Spearman correlation coefficient
+ggplot(data_above_100, aes(x = ITGA1, y = PLK1)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = paste("Spearman Correlation:", round(correlation$estimate, 2))) +
+  theme_minimal()
+This code first reads the Excel file, renames the specified columns, filters the data for areas above 100, calculates the Spearman correlation coefficient, and finally creates a scatterplot with a fitted line and the Spearman correlation coefficient displayed in the title. Adjust the column names and file path as needed.
+
+
+
+

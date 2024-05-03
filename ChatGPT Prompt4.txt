@@ -1,0 +1,38 @@
+# Read the Excel file
+> data <- read_excel("C:/Users/janna/OneDrive/Baylor University/Documents/ROI-89-A1.xlsx")
+Error: `path` does not exist: ‘C:/Users/janna/OneDrive/Baylor University/Documents/ROI-89-A1.xlsx’
+ChatGPT
+It seems there might be an issue with the file path you provided. Here are a few troubleshooting steps you can try:
+
+Check the file path: Ensure that the file path is correct and matches the location of the Excel file exactly. Even a small typo can lead to a "path does not exist" error.
+Verify file existence: Double-check that the Excel file exists in the specified location. You can do this by navigating to the folder manually in your file explorer and confirming the presence of the file.
+Use relative paths: Instead of providing the full file path, you can use a relative path if your R script and Excel file are in the same directory. For example:
+R
+Copy code
+data <- read_excel("ROI-89-A1.xlsx")
+Check file permissions: Ensure that you have the necessary permissions to access the file. If the file is located in a restricted directory, you may encounter issues accessing it.
+Escape special characters: If your file path contains special characters or spaces, make sure to properly escape them or enclose the entire file path in quotes.
+Try these steps and see if they resolve the issue. If you continue to encounter problems, feel free to ask for further assistance!
+
+User
+# Read the Excel file
+> data <- read_excel("C:\Users\janna\OneDrive - Baylor University\Documents\ROI-89-A1.xlsx")
+Error: '\U' used without hex digits in character string (<input>:1:24)
+> 
+ChatGPT
+It seems there's an issue with the backslashes in the file path. In R, backslashes are used as escape characters, so they need to be escaped themselves when specifying file paths in Windows.
+
+You can either use double backslashes (\\) or forward slashes (/) in the file path. Here's how you can modify the file path:
+
+R
+Copy code
+data <- read_excel("C:/Users/janna/OneDrive - Baylor University/Documents/ROI-89-A1.xlsx")
+or
+
+R
+Copy code
+data <- read_excel("C:\\Users\\janna\\OneDrive - Baylor University\\Documents\\ROI-89-A1.xlsx")
+Both should work fine for specifying the file path in R.
+
+
+

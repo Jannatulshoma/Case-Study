@@ -1,0 +1,22 @@
+C:/Users/janna/Documents/ROI-89-A1.xlsx change the column name Mean_2[Deconvolved[Tsf[SHOMA ROI Imaging:GFP 469,525]]]
+to ITGA1 and the column name Mean_2[Deconvolved[Tsf[SHOMA ROI Imaging:RFP 531,593]]] to PLK1
+ChatGPT
+To change the column names in R, you can use the rename() function from the dplyr package. Here's how you can rename the columns as requested:
+
+r
+Copy code
+library(readxl)
+library(dplyr)
+
+# Read the Excel file
+data <- read_excel("C:/Users/janna/Documents/ROI-89-A1.xlsx")
+
+# Rename columns
+data <- data %>%
+  rename(ITGA1 = `Mean_2[Deconvolved[Tsf[SHOMA ROI Imaging:GFP 469,525]]]`,
+         PLK1 = `Mean_2[Deconvolved[Tsf[SHOMA ROI Imaging:RFP 531,593]]]`)
+This code reads the Excel file and renames the specified columns to "ITGA1" and "PLK1". Adjust the column names and file path as needed.
+
+
+
+
